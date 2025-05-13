@@ -1,3 +1,5 @@
+# Minecraft Inf-Dev Position Reader
+
 Before Minecraft 1.0.0 accessing the debug menu to see your position is impossible, as it wasn't made at that time.
 
 However, that information is still within the game and just needs to be pulled out and displayed.
