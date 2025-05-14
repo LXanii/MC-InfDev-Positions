@@ -16,13 +16,13 @@ while True:
         openal_module = pymem.process.module_from_name(pm.process_handle, "OpenAL64.dll")
         openal_base = openal_module.lpBaseOfDll
 
-        x_base = openal_base + 0x5D600
-        y_base = openal_base + 0x5C328
+        x_base = openal_base + 0x5C308
+        y_base = openal_base + 0x5C308
         z_base = openal_base + 0x5C308
 
-        x_offsets = [0x70, 0x50, 0x48, 0x28, 0x3E8, 0x0]
-        y_offsets = [0x850, 0x48, 0x10, 0x68, 0x28, 0x3E8, 0x4]
-        z_offsets = [0x8, 0x8]
+        x_offsets = [0x8, 0x8]
+        y_offsets = [0x8, 0x4]
+        z_offsets = [0x8, 0x0]
 
         x_addr = resolve_pointer_chain(pm, x_base, x_offsets)
         y_addr = resolve_pointer_chain(pm, y_base, y_offsets)
@@ -57,8 +57,9 @@ while True:
             except Exception as e:
                 print("Memory read failed:", e)
                 break
-    except:
+    except Exception as e:
         if sent == False:
             sent = True
             os.system('cls' if os.name == 'nt' else 'clear')
             print("Open Minecraft (Inf Dev)")
+            print(f"{e}")
